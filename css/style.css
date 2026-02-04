@@ -1,0 +1,266 @@
+:root {
+  --primary: #0d6efd;
+  --secondary: #0b3d91;
+  --light: #f8f9fa;
+  --dark: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", system-ui, -apple-system, sans-serif;
+  color: var(--dark);
+  background: #ffffff;
+  margin: 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.acess-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1000;
+  min-width: 260px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+}
+
+.acess-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  margin: 8px 0 6px;
+  text-align: center;
+}
+
+.acess-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.acess-control {
+  font-size: 0.75rem;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  color: #1f2937;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.acess-control.is-active {
+  background: #0d6efd;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.acess-control.acess-reset {
+  background: #0d6efd;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.hero {
+  color: #fff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+}
+
+.hero.hero-cover {
+  background-image: url("../img/capa-pib.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero.hero-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 17, 36, 0.6);
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), -2px -2px 0 rgba(0, 0, 0, 0.8), 2px -2px 0 rgba(0, 0, 0, 0.8), -2px 2px 0 rgba(0, 0, 0, 0.8);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 24px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), -1px -1px 0 rgba(0, 0, 0, 0.8), 1px -1px 0 rgba(0, 0, 0, 0.8), -1px 1px 0 rgba(0, 0, 0, 0.8);
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+main > section:first-of-type {
+  margin-top: -24px;
+  position: relative;
+  z-index: 10;
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.15);
+}
+
+.badge-soft {
+  background: rgba(13, 110, 253, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.footer-main {
+  background: #0b1f3a;
+  color: #f8f9fa;
+}
+
+.footer-main a {
+  color: #cfe2ff;
+}
+
+.footer-copyright {
+  background: #08162b;
+  color: #cbd5f5;
+}
+
+.list-clean {
+  padding-left: 0;
+  list-style: none;
+}
+
+.page-header {
+  background: #f1f5f9;
+  padding: 32px 0;
+}
+
+.embed-frame {
+  min-height: 420px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pdf-viewer {
+  width: 100%;
+  min-height: 600px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.section-muted {
+  background: #f8fafc;
+}
+
+body.acess-night {
+  background: #0b1220;
+  color: #e2e8f0;
+}
+
+body.acess-night .navbar,
+body.acess-night .section-muted,
+body.acess-night .card,
+body.acess-night .embed-frame,
+body.acess-night .acess-dropdown,
+body.acess-night .pdf-viewer {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #1e293b;
+}
+
+body.acess-night .footer-main,
+body.acess-night .footer-copyright {
+  background: #020617;
+  color: #e2e8f0;
+}
+
+body.acess-night .badge-soft {
+  background: rgba(148, 163, 184, 0.2);
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+body.acess-reading {
+  background: #fdfbf5;
+}
+
+body.acess-reading main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body.acess-reading p,
+body.acess-reading li {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+body.acess-links a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  background: rgba(255, 214, 0, 0.25);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+body.acess-dyslexia {
+  font-family: "OpenDyslexic", "Arial", "Verdana", sans-serif;
+  letter-spacing: 0.03em;
+}
+
+body.acess-reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

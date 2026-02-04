@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PIB Trimestral | PIB do Pará</title>
+  <meta name="description" content="PIB trimestral do Pará com PDFs e dashboards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" id="navbar">
+    <a href="https://www.fapespa.pa.gov.br/" target="_blank" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <h1 class="m-3" data-i18n="nav_fapespa">FAPESPA</h1>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ms-auto p-4 p-lg-0">
+        <li class="nav-item"><a class="nav-link" href="../index.html" data-i18n="menu_home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../index.html#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        <li class="nav-item dropdown d-none">
+          <button class="nav-link dropdown-toggle bg-transparent border-0" id="langDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            🌐 <span data-i18n="menu_idioma">Idioma</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item lang-option" data-lang="pt" href="#">Português</a></li>
+            <li><a class="dropdown-item lang-option" data-lang="en" href="#">English</a></li>
+            <li><a class="dropdown-item lang-option" data-lang="es" href="#">Español</a></li>
+          </ul>
+        </li>
+        <li class="nav-item position-relative">
+          <button id="acess-open-btn" class="nav-link border-0 bg-transparent" title="Acessibilidade" onclick="toggleAccessibilityMenu(event);" type="button">
+            ♿ <span class="d-none d-lg-inline">Acessibilidade</span>
+          </button>
+          <div id="acessibilidadeMenu" class="acess-dropdown" style="display:none;">
+            <div class="acess-section-title">Visão</div>
+            <div class="acess-row">
+              <button id="acess-contrast" class="acess-control" type="button">Alto contraste</button>
+              <button id="acess-night" class="acess-control" type="button">Modo noturno</button>
+            </div>
+            <div class="acess-section-title">Cores</div>
+            <div class="acess-row">
+              <button id="acess-grayscale" class="acess-control" type="button">Escala em Cinza</button>
+            </div>
+            <div class="acess-section-title">Tamanho da Fonte</div>
+            <div class="acess-row">
+              <button id="font-dec" class="acess-control" type="button">A-</button>
+              <button id="font-reset" class="acess-control" type="button">A</button>
+              <button id="font-inc" class="acess-control" type="button">A+</button>
+            </div>
+            <div class="acess-section-title">Daltonismo</div>
+            <div class="acess-row">
+              <button id="dalton-prot" class="acess-control" type="button">Protanopia</button>
+              <button id="dalton-deut" class="acess-control" type="button">Deuteranopia</button>
+              <button id="dalton-trit" class="acess-control" type="button">Tritanopia</button>
+              <button id="dalton-off" class="acess-control" type="button">Normal</button>
+            </div>
+            <div class="acess-section-title">Leitura &amp; Legibilidade</div>
+            <div class="acess-row">
+              <button id="acess-dislexia" class="acess-control" type="button">Modo Dislexia</button>
+              <button id="acess-reading" class="acess-control" type="button">Modo Leitura</button>
+              <button id="acess-links" class="acess-control" type="button">Destacar Links</button>
+            </div>
+            <div class="acess-section-title">Movimento</div>
+            <div class="acess-row">
+              <button id="reduce-motion" class="acess-control" type="button">Reduzir Animações</button>
+            </div>
+            <div class="acess-section-title">Geral</div>
+            <div class="acess-row">
+              <button id="acess-reset" class="acess-control acess-reset" type="button">Restaurar Tudo</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1 class="mb-2">PIB Trimestral Atual</h1>
+      <p class="mb-0">Resultados trimestrais, relatórios técnicos e dashboards interativos.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title">PIB Trimestral 2025</h2>
+        <div class="row g-3">
+          <div class="col-lg-4">
+            <h6 class="fw-semibold mb-3">Documentos Disponíveis</h6>
+            <select id="pibTrimestralSelect" class="form-select form-select-sm mb-3" data-pdf-select data-pdf-viewer="#pibTrimestralViewer" data-pdf-link="#pibTrimestralFull" data-pdf-base="./">
+              <option value="">Selecione um documento</option>
+              <option value="PIB-2-tri-2025.pdf">2º Trimestre 2025 (Português)</option>
+              <option value="PIB-2-tri-2025-english-version.pdf">2º Trimestre 2025 (English)</option>
+              <option value="PIB-TRI-2025-1.pdf">1º Trimestre 2025</option>
+            </select>
+            <div class="mt-3 small text-muted">
+              Selecione um documento para visualizá-lo ao lado.
+            </div>
+            <a id="pibTrimestralFull" class="btn btn-outline-primary btn-sm mt-3" href="#" target="_blank" rel="noopener noreferrer">
+              Abrir em tela cheia
+            </a>
+          </div>
+          <div class="col-lg-8">
+            <iframe id="pibTrimestralViewer" class="pdf-viewer" title="Visualizador PIB Trimestral" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 section-muted">
+      <div class="container">
+        <h2 class="section-title">Arquivos Anteriores</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="p-4 border rounded bg-white h-100">
+              <h6>Boletim PIB Trimestral 2024</h6>
+              <p class="text-muted small mb-3">4º Trimestre de 2024.</p>
+              <a href="Relatorio_do_PIB_Trimestral_4_Trimestre.pdf" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-file-pdf me-2"></i>Baixar PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 section-muted">
+      <div class="container">
+        <h2 class="section-title">Dashboard Power BI</h2>
+        <div class="embed-frame bg-white d-flex align-items-center justify-content-center">
+          <div class="text-center px-4">
+            <i class="bi bi-graph-up fs-1 text-primary"></i>
+            <p class="mt-3 mb-0">Cole aqui o embed do Power BI quando estiver disponível.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-main" id="contato">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h5 class="mb-3">Sobre FAPESPA</h5>
+          <p class="small">Fundação Amazônia de Amparo a Estudos e Pesquisas, promovendo ciência, tecnologia e inovação para o desenvolvimento do estado.</p>
+        </div>
+        <div class="col-lg-4">
+          <h5 class="mb-3">Contato</h5>
+          <ul class="list-clean small">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i>Av. Presidente Vargas, 670</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2 text-primary"></i>+55 (91) 3323-2550</li>
+            <li><i class="bi bi-envelope me-2 text-primary"></i><a href="mailto:contato@fapespa.pa.gov.br">contato@fapespa.pa.gov.br</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5 class="mb-3">Produtos</h5>
+          <ul class="list-clean small">
+            <li class="mb-2"><a href="../pib-estadual/index.html">Relatório Estadual PIB-PA</a></li>
+            <li class="mb-2"><a href="../pib-trimestral/index.html">PIB Trimestral do Estado do Pará</a></li>
+            <li class="mb-2"><a href="../pib-municipal/index.html">Relatório Municipal PIB-PA</a></li>
+            <li class="mb-2"><a href="../metodologia/index.html">Caderno Metodológico</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-copyright text-center py-3">
+    <div class="container">
+      <small>© <span data-current-year></span> PIB do Pará | FAPESPA</small>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
