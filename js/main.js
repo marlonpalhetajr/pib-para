@@ -3,36 +3,28 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-// Configurar visualizador de PDF responsivo
+// Configurar visualizador de PDF responsivo com Google Docs Viewer em mobile
 function setupPdfViewer() {
   const isMobile = isMobileDevice();
   
-  document.querySelectorAll(".pdf-viewer").forEach((viewer) => {
-    const container = viewer.closest(".card-body") || viewer.parentElement;
-    
-    if (isMobile) {
-      // Em mobile, esconder iframe e mostrar botão de download
-      viewer.style.display = "none";
-      
-      // Procurar pelo link de download na mesma seção
-      const downloadLink = container.querySelector("[data-pdf-download]");
-      if (downloadLink) {
-        const pdfUrl = viewer.getAttribute("src");
-        downloadLink.setAttribute("href", pdfUrl);
-        downloadLink.style.display = "block";
-        
-        // Mostrar mensagem de aviso
-        const alert = document.createElement("div");
-        alert.className = "alert alert-info mb-3";
-        alert.innerHTML = '<i class="bi bi-info-circle me-2"></i>Em dispositivos móveis, o PDF será aberto em uma nova aba para melhor visualização.';
-        viewer.parentElement.insertBefore(alert, viewer);
-      }
+  if (!isMobile) return; // Se não for mobile, não precisamos fazer nada
+  
+  // Converter iframes de PDF que têm src fixo (como em metodologia)
+  document.querySelectorAll(".pdf-viewer[src]").forEach((viewer) => {
+    const srcPath = viewer.getAttribute("src");
+    if (srcPath && srcPath.includes(".pdf")) {
+      // Obter a URL completa do PDF
+      const fullUrl = new URL(srcPath, window.location.href).href;
+      const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true`;
+      viewer.setAttribute("src", googleViewerUrl);
     }
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   setupPdfViewer();
+  
+  const isMobile = isMobileDevice();
   
   const currentYear = new Date().getFullYear();
   const yearEl = document.querySelector("[data-current-year]");
@@ -57,7 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (value) {
         const pdfPath = `${pdfBase}${encodeURI(value)}`;
-        viewer.setAttribute("src", pdfPath);
+        
+        // Se for mobile, usar Google Docs Viewer
+        if (isMobile) {
+          // Criar URL completa do PDF
+          const fullUrl = new URL(pdfPath, window.location.href).href;
+          const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true`;
+          viewer.setAttribute("src", googleViewerUrl);
+        } else {
+          // Desktop: usar caminho relativo direto
+          viewer.setAttribute("src", pdfPath);
+        }
+        
         if (link) {
           link.setAttribute("href", pdfPath);
         }
