@@ -1,4 +1,39 @@
+// Detectar se é dispositivo mobile
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Configurar visualizador de PDF responsivo
+function setupPdfViewer() {
+  const isMobile = isMobileDevice();
+  
+  document.querySelectorAll(".pdf-viewer").forEach((viewer) => {
+    const container = viewer.closest(".card-body") || viewer.parentElement;
+    
+    if (isMobile) {
+      // Em mobile, esconder iframe e mostrar botão de download
+      viewer.style.display = "none";
+      
+      // Procurar pelo link de download na mesma seção
+      const downloadLink = container.querySelector("[data-pdf-download]");
+      if (downloadLink) {
+        const pdfUrl = viewer.getAttribute("src");
+        downloadLink.setAttribute("href", pdfUrl);
+        downloadLink.style.display = "block";
+        
+        // Mostrar mensagem de aviso
+        const alert = document.createElement("div");
+        alert.className = "alert alert-info mb-3";
+        alert.innerHTML = '<i class="bi bi-info-circle me-2"></i>Em dispositivos móveis, o PDF será aberto em uma nova aba para melhor visualização.';
+        viewer.parentElement.insertBefore(alert, viewer);
+      }
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  setupPdfViewer();
+  
   const currentYear = new Date().getFullYear();
   const yearEl = document.querySelector("[data-current-year]");
   if (yearEl) {
