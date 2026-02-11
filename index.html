@@ -90,7 +90,7 @@
   </header>
 
   <main>
-    <section class="py-5">
+    <section class="pt-5 pb-5 mt-2">
       <div class="container">
         <h2 class="section-title text-center">Painéis e Relatórios</h2>
         <div class="row g-4">
@@ -140,8 +140,8 @@
 
     <section class="py-5 section-muted" id="sobre">
       <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-12">
+        <div class="row align-items-start g-4">
+          <div class="col-lg-7">
             <h2 class="section-title">Sobre o projeto</h2>
             <p>Este site concentra os principais produtos de PIB do Pará com acesso simplificado a PDFs e dashboards. As atualizações serão realizadas pela equipe da FAPESPA.</p>
             <ul class="list-clean">
@@ -150,38 +150,90 @@
               <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i> Downloads oficiais em PDF.</li>
             </ul>
           </div>
+          <div class="col-lg-5" id="equipe">
+            <h2 class="section-title">Equipe</h2>
+            <p class="mb-3">Conheça a equipe responsável pela produção, revisão e atualização dos materiais do PIB do Pará.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#equipeModal">
+              <i class="bi bi-people me-2"></i>Acessar
+            </button>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <div class="modal fade" id="equipeModal" tabindex="-1" aria-labelledby="equipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body p-0">
+          <iframe src="expediente.html" title="Equipe do PIB do Para" style="width: 100%; min-height: 70vh; border: none;"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-outline-secondary" href="expediente.html" target="_blank" rel="noopener noreferrer">Abrir em nova aba</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer-main" id="contato">
     <div class="container py-5">
       <div class="row g-5">
-        <div class="col-lg-4">
-          <h5 class="mb-3">Sobre FAPESPA</h5>
-          <p class="small">Fundação Amazônia de Amparo a Estudos e Pesquisas, promovendo ciência, tecnologia e inovação para o desenvolvimento do estado.</p>
-        </div>
-        <div class="col-lg-4">
-          <h5 class="mb-3">Contato</h5>
-          <ul class="list-clean small">
-            <li class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i>Av. Presidente Vargas, 670</li>
-            <li class="mb-2"><i class="bi bi-telephone me-2 text-primary"></i>+55 (91) 3323-2550</li>
-            <li class="mb-3"><i class="bi bi-envelope me-2 text-primary"></i><a href="mailto:contato@fapespa.pa.gov.br">contato@fapespa.pa.gov.br</a></li>
-          </ul>
-          <div class="d-flex gap-2">
-            <a href="https://www.instagram.com/fapespa/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none" title="Instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.facebook.com/FapespaPA" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none" title="Facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://x.com/fapespa" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none" title="Twitter" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title mb-4">Sobre FAPESPA</h5>
+          <p class="small text-light">Fundação Amazônia de Amparo a Estudos e Pesquisas, promovendo ciência, tecnologia e inovação para o desenvolvimento do estado.</p>
+          <div class="social-icons mt-4">
+            <a href="https://www.instagram.com/fapespa/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/FapespaPA" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://x.com/fapespa" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter" aria-label="Twitter">
+              <i class="bi bi-twitter"></i>
+            </a>
           </div>
         </div>
-        <div class="col-lg-4">
-          <h5 class="mb-3">Produtos</h5>
-          <ul class="list-clean small">
-            <li class="mb-2"><a href="pib-estadual/index.html">Relatório Estadual PIB-PA</a></li>
-            <li class="mb-2"><a href="pib-trimestral/index.html">PIB Trimestral do Estado do Pará</a></li>
-            <li class="mb-2"><a href="pib-municipal/index.html">Relatório Municipal PIB-PA</a></li>
-            <li class="mb-2"><a href="metodologia/index.html">Caderno Metodológico</a></li>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title mb-4">Contato</h5>
+          <ul class="list-unstyled small text-light">
+            <li class="mb-3">
+              <i class="bi bi-geo-alt me-2 text-white"></i>
+              <span>Av. Presidente Vargas, 670</span>
+            </li>
+            <li class="mb-3">
+              <i class="bi bi-telephone me-2 text-white"></i>
+              <span>+55 (91) 3323-2550</span>
+            </li>
+            <li class="mb-3">
+              <i class="bi bi-clock me-2 text-white"></i>
+              <span>Seg-Sex: 8h às 14h</span>
+            </li>
+            <li>
+              <i class="bi bi-envelope me-2 text-white"></i>
+              <a href="mailto:contato@fapespa.pa.gov.br" class="text-light text-decoration-none">contato@fapespa.pa.gov.br</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title mb-4">Links Úteis</h5>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="https://www.pa.gov.br/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">Governo do Estado do Pará</a></li>
+            <li class="mb-2"><a href="https://www.fapespa.pa.gov.br/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">FAPESPA</a></li>
+            <li class="mb-2"><a href="politica-privacidade.html" class="text-light text-decoration-none">Política de Privacidade</a></li>
+            <li><a href="termos-uso.html" class="text-light text-decoration-none">Termos de Uso</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title mb-4">Navegação</h5>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Página Inicial</a></li>
+            <li class="mb-2"><a href="pib-estadual/index.html" class="text-light text-decoration-none">PIB Estadual</a></li>
+            <li class="mb-2"><a href="pib-municipal/index.html" class="text-light text-decoration-none">PIB Municipal</a></li>
+            <li class="mb-2"><a href="pib-trimestral/index.html" class="text-light text-decoration-none">PIB Trimestral</a></li>
+            <li><a href="metodologia/index.html" class="text-light text-decoration-none">Metodologia</a></li>
           </ul>
         </div>
       </div>
