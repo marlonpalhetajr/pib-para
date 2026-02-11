@@ -292,3 +292,27 @@ function initAccessibility() {
   applyAccessibility();
   updateControls();
 }
+
+// Botão Voltar ao Topo
+document.addEventListener("DOMContentLoaded", () => {
+  const btnTop = document.getElementById("btnTop");
+  
+  if (btnTop) {
+    // Mostrar/ocultar botão baseado no scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        btnTop.style.display = "flex";
+      } else {
+        btnTop.style.display = "none";
+      }
+    });
+
+    // Voltar ao topo ao clicar
+    btnTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+});
