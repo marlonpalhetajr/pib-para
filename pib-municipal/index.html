@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" id="navbar">
     <a href="https://www.fapespa.pa.gov.br/" target="_blank" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-      <h1 class="m-3" data-i18n="nav_fapespa">FAPESPA</h1>
+      <img src="../img/fapespa2.png" alt="FAPESPA - Fundação Amazônia de Amparo a Estudos e Pesquisas" class="navbar-logo" data-i18n-alt="nav_fapespa">
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Alternar navegação">
       <span class="navbar-toggler-icon"></span>
@@ -82,63 +82,86 @@
   </nav>
 
   <main>
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-12">
-            <div class="card shadow-lg border-0 h-100" style="background: #12294a; color: #ffffff; min-height: 260px;">
-              <div class="card-body p-4 text-center d-flex flex-column justify-content-center">
-                <i class="bi bi-file-text fs-1 mb-3" style="opacity: 0.9;"></i>
-                <h3 class="card-title fw-bold">PIB Municipal do Pará</h3>
-                <p class="mb-3" style="opacity: 0.95;">Relatórios técnicos e análises econômicas por município</p>
-                <span class="badge bg-light text-dark d-block mx-auto" style="width: fit-content; padding: 2px 6px; font-size: 0.72rem;">Período: 2017-2023</span>
+    <!-- Main Content Section -->
+    <section class="pib-municipal-content-section">
+      <div class="container-fluid">
+        <div class="row g-3 h-100">
+          <!-- Dashboard Column -->
+          <div class="col-12 col-xl-9">
+            <!-- Dashboard Card -->
+            <div class="pib-municipal-dashboard-card">
+              <div class="pib-municipal-dashboard-header pib-municipal-dashboard-header-centered">
+                <div class="pib-municipal-dashboard-title-group">
+                  <h1 class="pib-municipal-dashboard-title-main">PIB Municipal do Pará</h1>
+                  <p class="pib-municipal-dashboard-subtitle-main">Acompanhe a evolução econômica municipal do estado através de relatórios técnicos especializados</p>
+                </div>
+              </div>
+              <div class="pib-municipal-dashboard-body">
+                <iframe 
+                  class="pib-municipal-iframe" 
+                  title="Visualizador PIB Municipal" 
+                  loading="lazy" 
+                  id="pibMunicipalViewer"
+                  style="border: none; border-radius: 0; min-height: 800px;">
+                </iframe>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row g-4 mt-1">
-          <div class="col-lg-4">
-            <div class="card shadow-lg border-0 mb-4" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
-              <div class="card-body p-4">
-                <div class="mb-4">
-                  <i class="bi bi-file-pdf fs-1 text-danger"></i>
+          <!-- Sidebar Column -->
+          <div class="col-12 col-xl-3">
+            <div class="pib-municipal-sidebar">
+              <!-- Reports Card -->
+              <div class="pib-municipal-reports-card">
+                <div class="pib-municipal-reports-header">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <h3>Relatórios</h3>
                 </div>
-                <h5 class="card-title fw-bold mb-3">Seletor de relatórios</h5>
-                <p class="text-muted mb-4 small">Escolha o ano desejado para visualizar o relatório completo de PIB Municipal.</p>
-                <label for="pibMunicipalSelect" class="form-label fw-semibold small text-dark">Selecione o ano</label>
-                <select id="pibMunicipalSelect" class="form-select border-2 mb-3" style="border-color: #0d6efd;" data-pdf-select data-pdf-viewer="#pibMunicipalViewer" data-pdf-link="#pibMunicipalFull" data-pdf-base="./">
-                  <option value="PIB Municipal 2017.pdf">2017</option>
-                  <option value="PIB Municipal 2018.pdf">2018</option>
-                  <option value="PIB Municipal 2019.pdf">2019</option>
-                  <option value="PIB Municipal 2020.pdf">2020</option>
-                  <option value="PIB Municipal 2021.pdf">2021</option>
-                  <option value="PIB Municipal 2022.pdf">2022</option>
-                  <option value="PIB Municipal 2023.pdf" selected>2023</option>
-                </select>
-                <div class="alert alert-info py-2 small mb-3">
-                  <i class="bi bi-info-circle me-2"></i>Documento oficial com dados técnicos e análise econômica.
+                <div class="pib-municipal-reports-body">
+                  <label for="pibMunicipalSelect" class="pib-municipal-select-label">Selecione o Ano</label>
+                  <select id="pibMunicipalSelect" class="pib-municipal-modern-select" data-pdf-select data-pdf-link="#pibMunicipalFull" data-pdf-base="./">
+                    <option value="PIB Municipal 2017.pdf">📊 2017</option>
+                    <option value="PIB Municipal 2018.pdf">📊 2018</option>
+                    <option value="PIB Municipal 2019.pdf">📊 2019</option>
+                    <option value="PIB Municipal 2020.pdf">📊 2020</option>
+                    <option value="PIB Municipal 2021.pdf">📊 2021</option>
+                    <option value="PIB Municipal 2022.pdf">📊 2022</option>
+                    <option value="PIB Municipal 2023.pdf" selected>📊 2023</option>
+                  </select>
+                  <div class="pib-municipal-info-tip">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Documento técnico completo com análise econômica especializada</span>
+                  </div>
+                  <a id="pibMunicipalFull" data-pdf-download class="pib-municipal-download-btn" href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-download"></i> Abrir Relatório
+                  </a>
                 </div>
-                <a id="pibMunicipalFull" data-pdf-download class="btn btn-primary btn-sm w-100" href="#" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-download me-2"></i>Abrir em tela cheia
-                </a>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="card shadow-lg border-0">
-              <div class="card-body p-0">
-                <div style="background: linear-gradient(135deg, #0d6efd 0%, #0b3d91 100%); padding: 10px 16px; color: white;">
-                  <h6 class="mb-0"><i class="bi bi-eye me-2"></i>Visualizador de documentos</h6>
-                  <small style="opacity: 0.9;">Navegue pelo PDF integrado ou abra em tela cheia</small>
-                </div>
-                <iframe id="pibMunicipalViewer" class="pdf-viewer" style="border: none; border-radius: 0; min-height: 800px;" title="Visualizador PIB Municipal" loading="lazy"></iframe>
+
+              <!-- Info Card -->
+              <div class="pib-municipal-info-card">
+                <h4 class="pib-municipal-info-title">Sobre os Dados</h4>
+                <ul class="pib-municipal-info-list">
+                  <li>
+                    <i class="bi bi-check-circle"></i>
+                    <span>Fonte: Relatórios municipais (FAPESPA)</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle"></i>
+                    <span>Períodos anuais consolidados</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle"></i>
+                    <span>Dados atualizados regularmente</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer-main" id="contato">

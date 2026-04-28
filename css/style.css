@@ -29,6 +29,34 @@ body {
   letter-spacing: 0.3px;
 }
 
+/* Logo FAPESPA no navbar */
+.navbar-logo {
+  height: 90px;
+  width: auto;
+  max-width: 316px;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-logo:hover {
+  opacity: 0.85;
+}
+
+/* Responsividade da logo */
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 67px;
+    max-width: 235px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-logo {
+    height: 54px;
+    max-width: 181px;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -89,6 +117,159 @@ body {
   border-color: transparent;
 }
 
+/* ========================================
+   CARROSSEL DE NOTÍCIAS
+   ======================================== */
+
+#newsCarousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+/* Imagens do carrossel */
+.carousel-image {
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay escuro sobre as imagens para melhorar legibilidade */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+/* Container do conteúdo do slide */
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 0;
+}
+
+.carousel-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Data da notícia */
+.carousel-date {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+}
+
+/* Título da notícia */
+.carousel-title {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 20px 0;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Botão do carrossel */
+.carousel-caption .btn {
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-caption .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Indicadores (bolinhas) */
+.carousel-indicators {
+  z-index: 3;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators [data-bs-target].active {
+  background-color: #ffffff;
+  width: 14px;
+  height: 14px;
+}
+
+/* Controles de navegação (setas) */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 3;
+  width: 60px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #newsCarousel,
+  .carousel-image {
+    height: 400px;
+  }
+  
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-date {
+    font-size: 0.8rem;
+  }
+  
+  .carousel-caption .btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #newsCarousel,
+  .carousel-image {
+    height: 350px;
+  }
+  
+  .carousel-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Manter estilos antigos do hero caso sejam usados em outras páginas */
 .hero {
   color: #fff;
   padding: 80px 0;
@@ -185,6 +366,294 @@ main > section:first-of-type {
   padding: 32px 0;
 }
 
+/* ===== PIB Estadual - Premium Modern Design ===== */
+
+.pib-estadual-content-section {
+  padding: 20px 15px;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+/* Dashboard Card */
+.pib-estadual-dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e7eef9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pib-estadual-dashboard-card:hover {
+  box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
+}
+
+.pib-estadual-dashboard-header {
+  background: #0b1f3a;
+  padding: 18px 22px;
+  color: #ffffff;
+  border-bottom: 0;
+}
+
+.pib-estadual-dashboard-header-centered {
+  text-align: center;
+  padding: 28px 24px;
+}
+
+.pib-estadual-dashboard-title-main {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #ffffff;
+}
+
+.pib-estadual-dashboard-subtitle-main {
+  font-size: 0.85rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.95;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.pib-estadual-dashboard-title-group {
+  margin: 0;
+}
+
+.pib-estadual-dashboard-body {
+  padding: 0;
+  background: #ffffff;
+}
+
+.pib-estadual-iframe {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  min-height: 680px;
+  display: block;
+}
+
+/* Sidebar */
+.pib-estadual-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1200px) {
+  .pib-estadual-sidebar {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  .pib-estadual-sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .pib-estadual-sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  .pib-estadual-sidebar::-webkit-scrollbar-thumb {
+    background: #cbd5f5;
+    border-radius: 10px;
+  }
+
+  .pib-estadual-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #9ec5fe;
+  }
+}
+
+/* Reports Card */
+.pib-estadual-reports-card {
+  background: #ffffff;
+  border: 1px solid #e7eef9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.08);
+}
+
+.pib-estadual-reports-header {
+  background: #0b1f3a;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0;
+}
+
+.pib-estadual-reports-header i {
+  font-size: 1.4rem;
+}
+
+.pib-estadual-reports-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.pib-estadual-reports-body {
+  padding: 20px;
+}
+
+.pib-estadual-select-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.pib-estadual-modern-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #9ec5fe;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ffffff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #1f2937;
+}
+
+.pib-estadual-modern-select:hover {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.pib-estadual-modern-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+  outline: none;
+}
+
+.pib-estadual-info-tip {
+  background: #ecf0ff;
+  border-left: 3px solid #0d6efd;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #1f2937;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 14px;
+}
+
+.pib-estadual-info-tip i {
+  color: #0d6efd;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pib-estadual-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 14px;
+  background: #0b1f3a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.pib-estadual-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.pib-estadual-download-btn:active {
+  transform: translateY(0);
+}
+
+/* Info Card */
+.pib-estadual-info-card {
+  background: #ffffff;
+  border: 1px solid #e7eef9;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.08);
+}
+
+.pib-estadual-info-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pib-estadual-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pib-estadual-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.pib-estadual-info-list i {
+  color: #0d6efd;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .pib-estadual-iframe {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pib-estadual-content-section {
+    padding: 15px 12px;
+  }
+
+  .pib-estadual-dashboard-header-centered {
+    padding: 18px 16px;
+  }
+
+  .pib-estadual-dashboard-title-main {
+    font-size: 1.3rem;
+  }
+
+  .pib-estadual-dashboard-subtitle-main {
+    font-size: 0.8rem;
+  }
+
+  .pib-estadual-iframe {
+    min-height: 500px;
+  }
+}
+
 .embed-frame {
   min-height: 420px;
   border: 1px solid #e2e8f0;
@@ -263,6 +732,296 @@ body.acess-reduce-motion * {
   animation: none !important;
   transition: none !important;
   scroll-behavior: auto !important;
+}
+
+/* ======================================
+   PIB MUNICIPAL - ESTILOS
+   ====================================== */
+
+.pib-municipal-content-section {
+  padding: 20px 15px;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+/* Dashboard Card */
+.pib-municipal-dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e7eef9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pib-municipal-dashboard-card:hover {
+  box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
+}
+
+.pib-municipal-dashboard-header {
+  background: #0b1f3a;
+  padding: 18px 22px;
+  color: #ffffff;
+  border-bottom: 0;
+}
+
+.pib-municipal-dashboard-header-centered {
+  text-align: center;
+  padding: 28px 24px;
+}
+
+.pib-municipal-dashboard-title-main {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #ffffff;
+}
+
+.pib-municipal-dashboard-subtitle-main {
+  font-size: 0.85rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.95;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.pib-municipal-dashboard-title-group {
+  margin: 0;
+}
+
+.pib-municipal-dashboard-body {
+  padding: 0;
+  background: #ffffff;
+}
+
+.pib-municipal-iframe {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  min-height: 680px;
+  display: block;
+}
+
+/* Sidebar */
+.pib-municipal-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1200px) {
+  .pib-municipal-sidebar {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  .pib-municipal-sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .pib-municipal-sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  .pib-municipal-sidebar::-webkit-scrollbar-thumb {
+    background: #cbd5f5;
+    border-radius: 10px;
+  }
+
+  .pib-municipal-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #9ec5fe;
+  }
+}
+
+/* Reports Card */
+.pib-municipal-reports-card {
+  background: #ffffff;
+  border: 1px solid #e7eef9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.08);
+}
+
+.pib-municipal-reports-header {
+  background: #0b1f3a;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0;
+}
+
+.pib-municipal-reports-header i {
+  font-size: 1.4rem;
+}
+
+.pib-municipal-reports-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.pib-municipal-reports-body {
+  padding: 20px;
+}
+
+.pib-municipal-select-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.pib-municipal-modern-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #9ec5fe;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ffffff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #1f2937;
+}
+
+.pib-municipal-modern-select:hover {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.pib-municipal-modern-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+  outline: none;
+}
+
+.pib-municipal-info-tip {
+  background: #ecf0ff;
+  border-left: 3px solid #0d6efd;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #1f2937;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 14px;
+}
+
+.pib-municipal-info-tip i {
+  color: #0d6efd;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pib-municipal-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 14px;
+  background: #0b1f3a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.pib-municipal-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.pib-municipal-download-btn:active {
+  transform: translateY(0);
+}
+
+/* Info Card */
+.pib-municipal-info-card {
+  background: #ffffff;
+  border: 1px solid #e7eef9;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.08);
+}
+
+.pib-municipal-info-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pib-municipal-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pib-municipal-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.pib-municipal-info-list i {
+  color: #0d6efd;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .pib-municipal-iframe {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pib-municipal-content-section {
+    padding: 15px 12px;
+  }
+
+  .pib-municipal-dashboard-header-centered {
+    padding: 18px 16px;
+  }
+
+  .pib-municipal-dashboard-title-main {
+    font-size: 1.3rem;
+  }
+
+  .pib-municipal-dashboard-subtitle-main {
+    font-size: 0.8rem;
+  }
+
+  .pib-municipal-iframe {
+    min-height: 500px;
+  }
 }
 
 /* Botão Voltar ao Topo */
