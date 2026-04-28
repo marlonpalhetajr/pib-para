@@ -99,18 +99,19 @@
 
         <div class="row g-4 mb-4">
           <div class="col-12">
-            <div class="card shadow-lg border-0 h-100 overflow-hidden">
-              <div class="card-body p-0">
-                <div style="background: linear-gradient(135deg, #0d6efd 0%, #0b3d91 100%); padding: 10px 16px; color: white;">
-                  <h6 class="mb-0"><i class="bi bi-pie-chart-fill me-2"></i>Dashboard PIB Trimestral</h6>
-                  <small style="opacity: 0.9;">Visualização principal do PIB Trimestral do Estado do Pará</small>
+            <div class="pib-estadual-dashboard-card">
+              <div class="pib-estadual-dashboard-header pib-estadual-dashboard-header-centered">
+                <div class="pib-estadual-dashboard-title-group">
+                  <h1 class="pib-estadual-dashboard-title-main">Dashboard PIB Trimestral</h1>
+                  <p class="pib-estadual-dashboard-subtitle-main">Visualização principal do PIB Trimestral do Estado do Pará</p>
                 </div>
+              </div>
+              <div class="pib-estadual-dashboard-body">
                 <iframe
-                  class="pdf-viewer"
+                  class="pib-estadual-iframe"
                   title="Dashboard PIB Trimestral"
                   loading="lazy"
                   src="https://app.powerbi.com/view?r=eyJrIjoiM2I0ZGYxYTctNTBhMi00NDNhLTliNzgtODQ5MWU3Y2UyZjE5IiwidCI6IjAzMzJhOGEyLWUzODMtNDYwYi1hMjhkLTUyYTM0Mjg4YTRhZCJ9"
-                  style="min-height: 860px; border: none; border-radius: 0;"
                   allowfullscreen>
                 </iframe>
               </div>
