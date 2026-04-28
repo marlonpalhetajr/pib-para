@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Metodologia | PIB do Pará</title>
-  <meta name="description" content="Metodologia aplicada no PIB do Pará." />
+  <title>PIB Estadual | PIB do Pará</title>
+  <meta name="description" content="PIB estadual do Pará com PDFs e dashboards." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" id="navbar">
     <a href="https://www.fapespa.pa.gov.br/" target="_blank" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-      <h1 class="m-3" data-i18n="nav_fapespa">FAPESPA</h1>
+      <img src="../img/fapespa2.png" alt="FAPESPA - Fundação Amazônia de Amparo a Estudos e Pesquisas" class="navbar-logo" data-i18n-alt="nav_fapespa">
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Alternar navegação">
       <span class="navbar-toggler-icon"></span>
@@ -86,49 +86,58 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-12">
-            <div class="card shadow-lg border-0 h-100" style="background: #12294a; color: #ffffff; min-height: 260px;">
-              <div class="card-body p-4 text-center d-flex flex-column justify-content-center">
-                <i class="bi bi-journal-text fs-1 mb-3" style="opacity: 0.9;"></i>
-                <h3 class="card-title fw-bold">Caderno Metodológico</h3>
-                <p class="mb-3" style="opacity: 0.95;">Documento metodológico aplicado ao PIB do Pará</p>
-                <span class="badge bg-light text-dark d-block mx-auto" style="width: fit-content; padding: 2px 6px; font-size: 0.72rem;">Metodologia</span>
+            <div class="card shadow-sm border-0 pib-estadual-header text-white">
+              <div class="card-body py-3 text-center">
+                <h3 class="card-title fw-bold mb-0">PIB Estadual do Pará</h3>
               </div>
             </div>
           </div>
         </div>
 
         <div class="row g-4 mt-1">
-          <div class="col-lg-4">
-            <div class="card shadow-lg border-0 mb-4" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
-              <div class="card-body p-4">
-                <div class="mb-4">
-                  <i class="bi bi-file-pdf fs-1 text-danger"></i>
-                </div>
-                <h5 class="card-title fw-bold mb-3">Documento metodológico</h5>
-                <p class="text-muted mb-4 small">Acesse o PDF completo para detalhes técnicos da metodologia aplicada.</p>
-                <div class="alert alert-info py-2 small mb-3">
-                  <i class="bi bi-info-circle me-2"></i>Documento oficial em PDF com metodologia detalhada.
-                </div>
-                <a id="metodologiaFull" data-pdf-download class="btn btn-primary btn-sm w-100" href="../pib-trimestral/Metodologia-PIB-Trimestral-Edicao-DETGI-Consolidado1.pdf" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-download me-2"></i>Abrir em tela cheia
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8">
+          <div class="col-12">
             <div class="card shadow-lg border-0">
               <div class="card-body p-0">
                 <div style="background: linear-gradient(135deg, #0d6efd 0%, #0b3d91 100%); padding: 10px 16px; color: white;">
-                  <h6 class="mb-0"><i class="bi bi-eye me-2"></i>Visualizador de documentos</h6>
-                  <small style="opacity: 0.9;">Navegue pelo PDF integrado ou abra em tela cheia</small>
+                  <h6 class="mb-0"><i class="bi bi-bar-chart me-2"></i>Dashboard PIB Estadual</h6>
+                  <small style="opacity: 0.9;">Sistema de Contas Regionais</small>
                 </div>
-                <iframe class="pdf-viewer" style="border: none; border-radius: 0; min-height: 800px;" title="Metodologia PIB Trimestral" loading="lazy" src="../pib-trimestral/Metodologia-PIB-Trimestral-Edicao-DETGI-Consolidado1.pdf"></iframe>
+                <iframe class="pdf-viewer" style="border: none; border-radius: 0; min-height: 800px;" title="Dashboard Sistema de Contas Regionais" loading="lazy" src="https://app.powerbi.com/view?r=eyJrIjoiNDRkYjRmMzEtMDFiMS00YjlmLTkwOGUtY2M1OTRlMDFhMWQ1IiwidCI6IjAzMzJhOGEyLWUzODMtNDYwYi1hMjhkLTUyYTM0Mjg4YTRhZCJ9" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="card shadow-lg border-0 mx-auto" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%); max-width: 860px;">
+              <div class="card-body p-4">
+                <div class="mb-4 text-center">
+                  <i class="bi bi-file-pdf fs-1 text-danger"></i>
+                </div>
+                <h5 class="card-title fw-bold mb-3 text-center">Seletor de relatórios</h5>
+                <p class="text-muted mb-4 small text-center">Escolha o ano desejado para visualizar o relatório completo de PIB Estadual.</p>
+                <label for="pibEstadualSelect" class="form-label fw-semibold small text-dark">Selecione o ano</label>
+                <select id="pibEstadualSelect" class="form-select border-2 mb-3" style="border-color: #0d6efd;" data-pdf-select data-pdf-link="#pibEstadualFull" data-pdf-base="./">
+                  <option value="Relatório PIB do Pará 2017.pdf">2017</option>
+                  <option value="Relatório PIB do Pará 2018.pdf">2018</option>
+                  <option value="Relatório PIB do Pará 2019.pdf">2019</option>
+                  <option value="Relatório PIB do Pará 2020.pdf">2020</option>
+                  <option value="Relatorio PIB do Pará 2021.pdf">2021</option>
+                  <option value="Relatorio PIB Pará 2022.pdf">2022</option>
+                  <option value="Relatorio PIB Pará 2023.pdf" selected>2023</option>
+                </select>
+                <div class="alert alert-info py-2 small mb-3">
+                  <i class="bi bi-info-circle me-2"></i>Documento oficial com dados técnicos e análise econômica.
+                </div>
+                <a id="pibEstadualFull" data-pdf-download class="btn btn-primary btn-sm w-100" href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-download me-2"></i>Abrir em tela cheia
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer-main" id="contato">
@@ -157,7 +166,6 @@
             <li class="mb-2"><a href="../pib-estadual/index.html">Relatório Estadual PIB-PA</a></li>
             <li class="mb-2"><a href="../pib-trimestral/index.html">PIB Trimestral do Estado do Pará</a></li>
             <li class="mb-2"><a href="../pib-municipal/index.html">Relatório Municipal PIB-PA</a></li>
-            <li class="mb-2"><a href="index.html">Caderno Metodológico</a></li>
           </ul>
         </div>
       </div>
