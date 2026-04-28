@@ -1,109 +1,437 @@
+<!-- 
+  ========================================
+  SITE PIB DO PARÁ - PÁGINA PRINCIPAL
+  ========================================
+  
+  Este arquivo é a página inicial (index.html) do portal PIB do Pará.
+  Ele contém toda a estrutura HTML que organiza e exibe o conteúdo do site.
+-->
+
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 - informa ao navegador que este é um documento HTML moderno -->
+
 <html lang="pt-br">
+<!-- Tag raiz do documento HTML. O atributo lang="pt-br" indica que o conteúdo está em português brasileiro,
+     ajudando leitores de tela e mecanismos de busca a identificarem o idioma -->
+
 <head>
+  <!-- A seção <head> contém metadados e recursos que não são exibidos diretamente na página,
+       mas são essenciais para o funcionamento, SEO e carregamento de estilos/fontes -->
+  
+  <!-- ========== METADADOS BÁSICOS ========== -->
+  
   <meta charset="utf-8" />
+  <!-- Define a codificação de caracteres como UTF-8, permitindo acentos, símbolos especiais e caracteres de todos os idiomas -->
+  
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Configuração essencial para responsividade (design adaptável a diferentes telas).
+       width=device-width: faz a largura da página se ajustar à largura da tela do dispositivo
+       initial-scale=1: define o zoom inicial como 100% (sem ampliação ou redução) -->
+  
   <title>PIB do Pará | FAPESPA</title>
+  <!-- Título que aparece na aba do navegador e é usado por mecanismos de busca como Google -->
+  
   <meta name="description" content="PIB do Pará: estadual, municipal e trimestral. Dashboards e PDFs oficiais." />
+  <!-- Descrição curta do site que aparece nos resultados de busca do Google.
+       Importante para SEO (otimização para mecanismos de busca) -->
+  
+  <!-- ========== OTIMIZAÇÃO DE FONTES (GOOGLE FONTS) ========== -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Estas tags "preconnect" estabelecem conexão antecipada com os servidores do Google Fonts,
+       acelerando o carregamento das fontes ao estabelecer a conexão TCP antes de baixar os arquivos -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Importa duas famílias de fontes do Google:
+       - Jost: usada para títulos e cabeçalhos (pesos 500, 600, 700)
+       - Open Sans: usada para textos do corpo (pesos 400, 600)
+       display=swap: mostra texto em fonte padrão enquanto a fonte personalizada carrega, evitando tela em branco -->
+  
+  <!-- ========== BIBLIOTECAS CSS EXTERNAS ========== -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap 5.3.2: framework CSS que fornece componentes prontos (botões, cards, grid, navbar, etc)
+       CDN (Content Delivery Network): servidor externo otimizado para distribuição rápida de arquivos -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Bootstrap Icons: biblioteca de ícones vetoriais (como check-circle, people, arrow-up, etc)
+       Usados em todo o site para melhorar a comunicação visual -->
+  
   <link href="css/style.css" rel="stylesheet" />
+  <!-- Arquivo CSS personalizado do site, contendo estilos específicos que complementam ou sobrescrevem o Bootstrap -->
+  
 </head>
+
 <body>
+  <!-- A seção <body> contém todo o conteúdo visível da página -->
+  
+  <!-- ========================================
+       NAVEGAÇÃO (NAVBAR)
+       ======================================== -->
+  
   <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" id="navbar">
+    <!-- Barra de navegação principal do site
+         - navbar: classe Bootstrap para criar menu de navegação
+         - navbar-expand-lg: menu colapsa em telas menores que "large" (992px), mostrando ícone hambúrguer
+         - bg-white: fundo branco
+         - navbar-light: texto escuro (para contraste com fundo claro)
+         - sticky-top: menu fica fixo no topo ao rolar a página
+         - p-0: remove padding padrão
+         - id="navbar": identificador único para possível manipulação via JavaScript -->
+    
     <a href="https://www.fapespa.pa.gov.br/" target="_blank" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-      <h1 class="m-3" data-i18n="nav_fapespa">FAPESPA</h1>
+      <!-- Link da logo/marca da FAPESPA
+           - target="_blank": abre em nova aba
+           - navbar-brand: estilo Bootstrap para logo
+           - d-flex align-items-center: usa Flexbox para alinhar verticalmente ao centro
+           - px-4 px-lg-5: padding horizontal de 4 unidades (mobile) e 5 unidades (large screens) -->
+      
+      <img src="img/fapespa2.png" alt="FAPESPA - Fundação Amazônia de Amparo a Estudos e Pesquisas" class="navbar-logo" data-i18n-alt="nav_fapespa">
+      <!-- Logo da instituição em imagem
+           - navbar-logo: classe personalizada para estilos no CSS
+           - alt: texto alternativo para acessibilidade e SEO
+           - data-i18n-alt: atributo personalizado para internações futuras -->
     </a>
+    
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Alternar navegação">
+      <!-- Botão hambúrguer que aparece em telas pequenas para mostrar/esconder o menu
+           - navbar-toggler: estilo Bootstrap para botão de colapso
+           - me-4: margem direita de 4 unidades
+           - data-bs-toggle="collapse": funcionalidade Bootstrap para colapsar/expandir elementos
+           - data-bs-target="#navbarCollapse": indica qual elemento será controlado (o menu com id navbarCollapse)
+           - aria-label: descrição para leitores de tela (acessibilidade) -->
+      
       <span class="navbar-toggler-icon"></span>
+      <!-- Ícone visual do hambúrguer (três linhas horizontais) -->
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarCollapse">
+      <!-- Container do menu de navegação que colapsa em telas pequenas
+           - collapse navbar-collapse: classes Bootstrap para comportamento de colapso
+           - id="navbarCollapse": identificador referenciado pelo botão hambúrguer -->
+      
       <ul class="navbar-nav ms-auto p-4 p-lg-0">
+        <!-- Lista de itens de navegação
+             - navbar-nav: estilo Bootstrap para lista de navegação
+             - ms-auto: margem esquerda automática, empurrando o menu para a direita
+             - p-4 p-lg-0: padding de 4 unidades em mobile, 0 em large screens -->
+        
         <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n="menu_home">Home</a></li>
+        <!-- Item de menu ativo (página atual)
+             - nav-item: wrapper do item de navegação
+             - nav-link: estilo do link
+             - active: indica que esta é a página atual (visual destacado) -->
+        
         <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <!-- Link âncora que rola suavemente até a seção #sobre na mesma página -->
+        
         <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        <!-- Link âncora que rola até a seção de contato no rodapé -->
+        
         <li class="nav-item dropdown d-none">
+          <!-- Item de menu dropdown (seletor de idioma) - atualmente oculto com d-none
+               d-none: display none (não é exibido, preparado para implementação futura) -->
+          
           <button class="nav-link dropdown-toggle bg-transparent border-0" id="langDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <!-- Botão para abrir menu de idiomas
+                 - dropdown-toggle: adiciona seta indicativa de dropdown
+                 - bg-transparent border-0: sem fundo e sem borda (aparência de link)
+                 - data-bs-toggle="dropdown": ativa funcionalidade de dropdown do Bootstrap
+                 - aria-expanded: estado do dropdown para leitores de tela -->
+            
             🌐 <span data-i18n="menu_idioma">Idioma</span>
+            <!-- Emoji de globo + texto "Idioma" -->
           </button>
+          
           <ul class="dropdown-menu">
+            <!-- Menu suspenso com opções de idioma -->
             <li><a class="dropdown-item lang-option" data-lang="pt" href="#">Português</a></li>
             <li><a class="dropdown-item lang-option" data-lang="en" href="#">English</a></li>
             <li><a class="dropdown-item lang-option" data-lang="es" href="#">Español</a></li>
+            <!-- data-lang: atributo personalizado para identificar o idioma selecionado via JavaScript -->
           </ul>
         </li>
+        
         <li class="nav-item position-relative">
+          <!-- Item de menu de acessibilidade
+               - position-relative: permite posicionamento absoluto do submenu em relação a este elemento -->
+          
           <button id="acess-open-btn" class="nav-link border-0 bg-transparent" title="Acessibilidade" onclick="toggleAccessibilityMenu(event);" type="button">
+            <!-- Botão que abre o menu de acessibilidade
+                 - title: tooltip que aparece ao passar o mouse
+                 - onclick: chama função JavaScript ao clicar -->
+            
             ♿ <span class="d-none d-lg-inline">Acessibilidade</span>
+            <!-- Símbolo universal de acessibilidade + texto
+                 - d-none: oculta em mobile
+                 - d-lg-inline: exibe como inline em telas large (mostra só ícone em mobile, ícone+texto em desktop) -->
           </button>
+          
           <div id="acessibilidadeMenu" class="acess-dropdown" style="display:none;">
+            <!-- Menu dropdown de acessibilidade (inicialmente oculto)
+                 Este menu oferece múltiplas opções para pessoas com diferentes necessidades de acessibilidade -->
+            
+            <!-- SEÇÃO: VISÃO -->
             <div class="acess-section-title">Visão</div>
+            <!-- Título da seção -->
+            
             <div class="acess-row">
+              <!-- Container horizontal para botões -->
+              
               <button id="acess-contrast" class="acess-control" type="button">Alto contraste</button>
+              <!-- Aumenta o contraste de cores para pessoas com baixa visão -->
+              
               <button id="acess-night" class="acess-control" type="button">Modo noturno</button>
+              <!-- Tema escuro para reduzir cansaço visual -->
             </div>
+            
+            <!-- SEÇÃO: CORES -->
             <div class="acess-section-title">Cores</div>
             <div class="acess-row">
               <button id="acess-grayscale" class="acess-control" type="button">Escala em Cinza</button>
+              <!-- Remove cores, útil para alguns tipos de daltonismo -->
             </div>
+            
+            <!-- SEÇÃO: TAMANHO DA FONTE -->
             <div class="acess-section-title">Tamanho da Fonte</div>
             <div class="acess-row">
               <button id="font-dec" class="acess-control" type="button">A-</button>
+              <!-- Diminui o tamanho da fonte -->
+              
               <button id="font-reset" class="acess-control" type="button">A</button>
+              <!-- Restaura tamanho padrão -->
+              
               <button id="font-inc" class="acess-control" type="button">A+</button>
+              <!-- Aumenta o tamanho da fonte -->
             </div>
+            
+            <!-- SEÇÃO: DALTONISMO -->
             <div class="acess-section-title">Daltonismo</div>
+            <!-- Filtros de cor para diferentes tipos de daltonismo (cegueira de cores) -->
             <div class="acess-row">
               <button id="dalton-prot" class="acess-control" type="button">Protanopia</button>
+              <!-- Dificuldade em distinguir vermelho -->
+              
               <button id="dalton-deut" class="acess-control" type="button">Deuteranopia</button>
+              <!-- Dificuldade em distinguir verde -->
+              
               <button id="dalton-trit" class="acess-control" type="button">Tritanopia</button>
+              <!-- Dificuldade em distinguir azul -->
+              
               <button id="dalton-off" class="acess-control" type="button">Normal</button>
+              <!-- Desativa filtros de daltonismo -->
             </div>
+            
+            <!-- SEÇÃO: LEITURA & LEGIBILIDADE -->
             <div class="acess-section-title">Leitura &amp; Legibilidade</div>
+            <!-- &amp; é a entidade HTML para o caractere & (evita confusão com sintaxe HTML) -->
             <div class="acess-row">
               <button id="acess-dislexia" class="acess-control" type="button">Modo Dislexia</button>
+              <!-- Fonte especial projetada para facilitar leitura de pessoas com dislexia -->
+              
               <button id="acess-reading" class="acess-control" type="button">Modo Leitura</button>
+              <!-- Layout simplificado para foco na leitura -->
+              
               <button id="acess-links" class="acess-control" type="button">Destacar Links</button>
+              <!-- Torna links mais visíveis -->
             </div>
+            
+            <!-- SEÇÃO: MOVIMENTO -->
             <div class="acess-section-title">Movimento</div>
             <div class="acess-row">
               <button id="reduce-motion" class="acess-control" type="button">Reduzir Animações</button>
+              <!-- Remove animações, útil para pessoas com sensibilidade a movimento -->
             </div>
+            
+            <!-- SEÇÃO: GERAL -->
             <div class="acess-section-title">Geral</div>
             <div class="acess-row">
               <button id="acess-reset" class="acess-control acess-reset" type="button">Restaurar Tudo</button>
+              <!-- Reseta todas as configurações de acessibilidade aos valores padrão -->
             </div>
           </div>
         </li>
       </ul>
     </div>
   </nav>
-
-  <header class="hero hero-cover text-center">
-    <div class="container">
-      <h1>PIB do Pará</h1>
-      <p class="lead">Acompanhe os dados oficiais do PIB estadual, municipal e trimestral. Acesse PDFs e dashboards interativos com dados atualizados.</p>
+  
+  <!-- ========================================
+       CARROSSEL DE NOTÍCIAS
+       ======================================== -->
+  
+  <div id="newsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <!-- Carrossel Bootstrap para exibir notícias em destaque
+         - carousel slide: componente Bootstrap de carrossel
+         - carousel-fade: transição suave com fade (alternativa: sem essa classe usa slide horizontal)
+         - data-bs-ride="carousel": inicia automaticamente ao carregar a página
+         - data-bs-interval="5000": tempo em ms entre transições (5 segundos) -->
+    
+    <!-- Indicadores (bolinhas) -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Notícia 1"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1" aria-label="Notícia 2"></button>
     </div>
-  </header>
-
+    
+    <!-- Slides do carrossel -->
+    <div class="carousel-inner">
+      
+      <!-- SLIDE 1 -->
+      <div class="carousel-item active">
+        <!-- Item ativo do carrossel (primeiro slide sempre tem class="active") -->
+        
+        <img src="img/pib_crescimento_para.png" class="d-block w-100 carousel-image" alt="PIB do Pará cresce 7,85% no terceiro trimestre de 2025">
+        <!-- Imagem de fundo do slide
+             - d-block: display block
+             - w-100: largura 100%
+             - carousel-image: classe personalizada para ajustes no CSS -->
+        
+        <div class="carousel-overlay"></div>
+        <!-- Overlay escuro sobre a imagem para melhorar legibilidade do texto -->
+        
+        <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+          <!-- Container do conteúdo do slide
+               - carousel-caption: classe Bootstrap para legendas
+               - d-flex flex-column: Flexbox em coluna
+               - justify-content-center: centraliza verticalmente
+               - h-100: altura 100% -->
+          
+          <div class="carousel-content">
+            <span class="carousel-date">03 de março de 2026</span>
+            <!-- Data da notícia -->
+            
+            <h2 class="carousel-title">PIB do Pará cresce 7,85% no terceiro trimestre de 2025 e supera média nacional</h2>
+            <!-- Título da notícia -->
+            
+            <a href="https://www.fapespa.pa.gov.br/2026/03/03/pib-do-para-cresce-785-no-terceiro-trimestre-de-2025-e-supera-media-nacional/" target="_blank" class="btn btn-light btn-lg mt-3">
+              Leia mais <i class="bi bi-arrow-right"></i>
+            </a>
+            <!-- Botão que leva para a página da notícia
+                 - target="_blank": abre em nova aba
+                 - bi bi-arrow-right: ícone de seta do Bootstrap Icons -->
+          </div>
+        </div>
+      </div>
+      
+      <!-- SLIDE 2 -->
+      <div class="carousel-item">
+        <!-- Segundo slide do carrossel -->
+        
+        <img src="img/novos_produtos_economia.png" class="d-block w-100 carousel-image" alt="Fapespa apresenta novos produtos estatísticos sobre a economia do Pará">
+        <!-- Imagem de fundo do segundo slide -->
+        
+        <div class="carousel-overlay"></div>
+        <!-- Overlay escuro sobre a imagem para melhorar legibilidade do texto -->
+        
+        <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+          <!-- Container do conteúdo do slide -->
+          
+          <div class="carousel-content">
+            <span class="carousel-date">29 de dezembro de 2025</span>
+            <!-- Data da notícia -->
+            
+            <h2 class="carousel-title">Fapespa apresenta novos produtos estatísticos sobre a economia do Pará</h2>
+            <!-- Título da notícia -->
+            
+            <a href="https://www.fapespa.pa.gov.br/2025/12/19/fapespa-apresenta-novos-produtos-estatisticos-sobre-a-economia-do-para/" target="_blank" class="btn btn-light btn-lg mt-3">
+              Leia mais <i class="bi bi-arrow-right"></i>
+            </a>
+            <!-- Botão que leva para a página da notícia no site da FAPESPA -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Controles de navegação (setas) -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+  
+  <!-- ========================================
+       CONTEÚDO PRINCIPAL (MAIN)
+       ======================================== -->
+  
   <main>
+    <!-- Tag semântica HTML5 que identifica o conteúdo principal da página
+         Melhora acessibilidade e SEO ao indicar claramente onde está o conteúdo central -->
+    
+    <!-- ========================================
+         SEÇÃO: PAINÉIS E RELATÓRIOS
+         ======================================== -->
+    
     <section class="pt-5 pb-5 mt-2">
+      <!-- Primeira seção de conteúdo principal
+           - pt-5: padding-top de 5 unidades (espaço superior)
+           - pb-5: padding-bottom de 5 unidades (espaço inferior)
+           - mt-2: margin-top de 2 unidades (pequeno espaço do header) -->
+      
       <div class="container">
+        <!-- Container Bootstrap para centralizar e limitar largura -->
+        
         <h2 class="section-title text-center">Painéis e Relatórios</h2>
+        <!-- Título da seção
+             - section-title: classe personalizada do style.css
+             - text-center: centraliza o texto -->
+        
         <div class="row g-4">
+          <!-- Sistema de grid do Bootstrap
+               - row: inicia uma linha do grid (sistema de 12 colunas)
+               - g-4: gap (espaçamento) de 4 unidades entre as colunas -->
+          
+          <!-- ========== CARD 1: PIB ESTADUAL ========== -->
+          
           <div class="col-lg-3 col-md-6">
+            <!-- Define largura da coluna em diferentes breakpoints:
+                 - col-lg-3: em telas large (≥992px), ocupa 3 de 12 colunas (25% = 4 cards por linha)
+                 - col-md-6: em telas medium (≥768px), ocupa 6 de 12 colunas (50% = 2 cards por linha)
+                 - Em mobile (<768px), ocupa 12 colunas (100% = 1 card por linha) -->
+            
             <div class="card h-100 shadow-sm border-0 card-hover" style="background: #5a6c7d; color: white;">
+              <!-- Card (componente Bootstrap que cria caixas de conteúdo)
+                   - h-100: height 100% (todos os cards ficam com mesma altura na linha)
+                   - shadow-sm: sombra suave para dar profundidade
+                   - border-0: remove borda padrão
+                   - card-hover: classe personalizada para efeito ao passar mouse (definida no CSS)
+                   - style inline: cor de fundo cinza-azulado e texto branco -->
+              
               <div class="card-body d-flex flex-column text-center">
+                <!-- Corpo do card
+                     - card-body: padding interno padrão do Bootstrap
+                     - d-flex flex-column: Flexbox em coluna (itens empilhados verticalmente)
+                     - text-center: centraliza o texto -->
+                
                 <span class="badge rounded-pill mb-3" style="background: rgba(255,255,255,0.3); color: white;">Estadual</span>
+                <!-- Badge (etiqueta/rótulo)
+                     - rounded-pill: formato arredondado (pílula)
+                     - mb-3: margin-bottom de 3 unidades
+                     - style: fundo branco semi-transparente (30% de opacidade) -->
+                
                 <h5 class="card-title">PIB Estadual</h5>
+                <!-- Título do card -->
+                
                 <p class="card-text">Documentos oficiais, séries históricas e arquivos PDF do PIB estadual do Pará.</p>
+                <!-- Texto descritivo do card -->
+                
                 <a href="pib-estadual/index.html" class="btn btn-light btn-sm mt-auto align-self-center">Acessar</a>
+                <!-- Link estilizado como botão
+                     - btn btn-light: botão Bootstrap com fundo claro
+                     - btn-sm: tamanho pequeno
+                     - mt-auto: margin-top automática (empurra o botão para o final do card, mesmo que o texto seja diferente)
+                     - align-self-center: centraliza o botão horizontalmente dentro do flex container -->
               </div>
             </div>
           </div>
+          
+          <!-- ========== CARD 2: PIB MUNICIPAL ========== -->
+          <!-- Estrutura idêntica ao Card 1, apenas com conteúdo diferente -->
+          
           <div class="col-lg-3 col-md-6">
             <div class="card h-100 shadow-sm border-0 card-hover" style="background: #5a6c7d; color: white;">
               <div class="card-body d-flex flex-column text-center">
@@ -114,6 +442,9 @@
               </div>
             </div>
           </div>
+          
+          <!-- ========== CARD 3: PIB TRIMESTRAL ========== -->
+          
           <div class="col-lg-3 col-md-6">
             <div class="card h-100 shadow-sm border-0 card-hover" style="background: #5a6c7d; color: white;">
               <div class="card-body d-flex flex-column text-center">
@@ -124,6 +455,9 @@
               </div>
             </div>
           </div>
+          
+          <!-- ========== CARD 4: METODOLOGIA ========== -->
+          
           <div class="col-lg-3 col-md-6">
             <div class="card h-100 shadow-sm border-0 card-hover" style="background: #5a6c7d; color: white;">
               <div class="card-body d-flex flex-column text-center">
@@ -137,56 +471,187 @@
         </div>
       </div>
     </section>
-
+    
+    <!-- ========================================
+         SEÇÃO: SOBRE O PROJETO + EQUIPE
+         ======================================== -->
+    
     <section class="py-5 section-muted" id="sobre">
+      <!-- Segunda seção principal
+           - py-5: padding vertical (top e bottom) de 5 unidades
+           - section-muted: classe personalizada que adiciona fundo cinza claro (definida no CSS)
+           - id="sobre": âncora para navegação (quando clicar em "Sobre" no menu, rola até aqui) -->
+      
       <div class="container">
         <div class="row align-items-start g-4">
+          <!-- Row com alinhamento e gap
+               - align-items-start: alinha os itens no topo (ao invés de centralizar verticalmente)
+               - g-4: gap de 4 unidades entre colunas -->
+          
+          <!-- ========== COLUNA 1: SOBRE O PROJETO ========== -->
+          
           <div class="col-lg-7">
+            <!-- Em telas large, ocupa 7 de 12 colunas (58,3% da largura)
+                 Em mobile, ocupa 12 colunas (100%) -->
+            
             <h2 class="section-title">Sobre o projeto</h2>
+            <!-- Título da subseção -->
+            
             <p>Este site concentra os principais produtos de PIB do Pará com acesso simplificado a PDFs e dashboards. As atualizações serão realizadas pela equipe da FAPESPA.</p>
+            <!-- Parágrafo descritivo -->
+            
             <ul class="list-clean">
+              <!-- Lista não ordenada
+                   - list-clean: classe personalizada do CSS que remove marcadores de lista padrão -->
+              
               <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i> Dados estaduais, municipais e trimestrais.</li>
+              <!-- Item de lista com ícone
+                   - mb-2: margin-bottom de 2 unidades
+                   - bi bi-check-circle: ícone de círculo com check do Bootstrap Icons
+                   - me-2: margin-right de 2 unidades (espaço entre ícone e texto)
+                   - text-primary: cor primária (azul) -->
+              
               <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i> Integração com dashboards Power BI.</li>
               <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i> Downloads oficiais em PDF.</li>
             </ul>
           </div>
+          
+          <!-- ========== COLUNA 2: EQUIPE ========== -->
+          
           <div class="col-lg-5" id="equipe">
+            <!-- Em telas large, ocupa 5 de 12 colunas (41,7% da largura)
+                 id="equipe": âncora para possível navegação futura -->
+            
             <h2 class="section-title">Equipe</h2>
+            
             <p class="mb-3">Conheça a equipe responsável pela produção, revisão e atualização dos materiais do PIB do Pará.</p>
+            <!-- mb-3: margin-bottom de 3 unidades -->
+            
             <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#equipeModal">
+              <!-- Botão que abre o modal de equipe
+                   - btn btn-primary: botão Bootstrap com cor primária (azul)
+                   - type="button": especifica que é um botão (não submit de formulário)
+                   - data-bs-toggle="modal": ativa funcionalidade de modal do Bootstrap
+                   - data-bs-target="#equipeModal": indica qual modal abrir (elemento com id equipeModal) -->
+              
               <i class="bi bi-people me-2"></i>Acessar
+              <!-- Ícone de pessoas + texto "Acessar" -->
             </button>
           </div>
         </div>
       </div>
     </section>
   </main>
+  
+  <!-- ========================================
+       MODAL: INFORMAÇÕES DA EQUIPE
+       ======================================== -->
 
   <div class="modal fade" id="equipeModal" tabindex="-1" aria-labelledby="equipeModalLabel" aria-hidden="true">
+    <!-- Modal do Bootstrap (janela sobreposta que aparece quando o usuário clica em "Acessar" no botão Equipe)
+         - modal fade: componente modal com efeito de transição suave (fade in/out)
+         - id="equipeModal": identificador único usado pelo botão através do data-bs-target="#equipeModal"
+         - tabindex="-1": remove do fluxo de navegação por Tab (só acessível quando aberto)
+         - aria-labelledby="equipeModalLabel": acessibilidade - referencia título do modal para leitores de tela
+         - aria-hidden="true": indica que está oculto por padrão (melhora acessibilidade) -->
+    
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <!-- Estrutura do diálogo do modal
+           - modal-dialog: container do modal com margens laterais
+           - modal-xl: tamanho extra-large (ocupa quase toda largura da tela em desktops)
+           - modal-dialog-centered: centraliza verticalmente na tela
+           - modal-dialog-scrollable: permite scroll interno quando conteúdo é maior que viewport -->
+      
       <div class="modal-content">
+        <!-- Container do conteúdo (header + body + footer) -->
+        
         <div class="modal-header border-0">
+          <!-- Cabeçalho do modal
+               - border-0: remove borda inferior do header (design mais clean) -->
+          
           <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <!-- Botão X para fechar
+               - btn-close: estilo Bootstrap com ícone X
+               - ms-auto: margin-start automático (empurra o botão para direita)
+               - data-bs-dismiss="modal": comando Bootstrap que fecha o modal
+               - aria-label: descrição do botão para leitores de tela -->
         </div>
+        
         <div class="modal-body p-0">
+          <!-- Corpo do modal onde fica o conteúdo principal
+               - p-0: padding zero (remove espaços internos, pois o iframe já tem seus próprios espaçamentos) -->
+          
           <iframe src="expediente.html" title="Equipe do PIB do Para" style="width: 100%; min-height: 70vh; border: none;"></iframe>
+          <!-- Iframe (incorpora outra página HTML dentro desta)
+               - src="expediente.html": página externa com lista completa da equipe (direção, coordenação, técnicos, etc)
+               - title: descrição do conteúdo do iframe (acessibilidade)
+               - width 100%: largura total do container
+               - min-height 70vh: altura mínima de 70% da viewport height (altura da tela)
+               - border none: remove borda do iframe -->
         </div>
+        
         <div class="modal-footer">
+          <!-- Rodapé do modal (área para botões de ação) -->
+          
           <a class="btn btn-outline-secondary" href="expediente.html" target="_blank" rel="noopener noreferrer">Abrir em nova aba</a>
+          <!-- Link estilizado como botão que abre expediente.html em nova aba
+               - btn btn-outline-secondary: botão com borda cinza (secondary) sem preenchimento
+               - target="_blank": abre em nova aba
+               - rel="noopener noreferrer": segurança - impede que a nova página tenha acesso ao window.opener -->
         </div>
       </div>
     </div>
   </div>
 
+  <!-- ========================================
+       RODAPÉ PRINCIPAL (FOOTER)
+       ======================================== -->
+
   <footer class="footer-main" id="contato">
+    <!-- Rodapé da página
+         - footer-main: classe personalizada do style.css (provavelmente define background escuro, cores, etc)
+         - id="contato": âncora para navegação - quando clicar em link #contato, rola até aqui -->
+    
     <div class="container py-5">
+      <!-- Container Bootstrap para centralizar conteúdo
+           - py-5: padding vertical de 5 unidades (espaço interno superior e inferior) -->
+      
       <div class="row g-5">
+        <!-- Sistema de grid Bootstrap
+             - row: linha do grid (divide em até 12 colunas)
+             - g-5: gap de 5 unidades entre colunas (espaçamento generoso) -->
+        
+        <!-- ========== COLUNA 1: SOBRE FAPESPA + REDES SOCIAIS ========== -->
+        
         <div class="col-lg-3 col-md-6">
+          <!-- col-lg-3: ocupa 3 de 12 colunas em large (25% da largura = 4 colunas no total)
+               col-md-6: ocupa 6 de 12 colunas em medium (50% = 2 colunas)
+               Em mobile (<768px), ocupa 12 colunas (100% = 1 coluna) -->
+          
           <h5 class="footer-title mb-4">Sobre FAPESPA</h5>
+          <!-- Título da coluna
+               - footer-title: classe personalizada do CSS
+               - mb-4: margin-bottom de 4 unidades -->
+          
           <p class="small text-light">Fundação Amazônia de Amparo a Estudos e Pesquisas, promovendo ciência, tecnologia e inovação para o desenvolvimento do estado.</p>
+          <!-- Descrição institucional
+               - small: tamanho de fonte reduzido (Bootstrap)
+               - text-light: texto claro/branco para contraste com fundo escuro -->
+          
           <div class="social-icons mt-4">
+            <!-- Container dos ícones de redes sociais
+                 - social-icons: classe personalizada (provavelmente define layout flexbox horizontal)
+                 - mt-4: margin-top de 4 unidades -->
+            
             <a href="https://www.instagram.com/fapespa/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" aria-label="Instagram">
+              <!-- Link para Instagram
+                   - target="_blank": abre em nova aba
+                   - rel="noopener noreferrer": segurança contra ataques de window.opener e referrer leaking
+                   - social-link: classe personalizada (provavelmente estiliza círculo, hover, etc)
+                   - title: tooltip que aparece ao passar mouse
+                   - aria-label: descrição para leitores de tela -->
               <i class="bi bi-instagram"></i>
+              <!-- Ícone do Instagram do Bootstrap Icons -->
             </a>
             <a href="https://www.facebook.com/FapespaPA" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook" aria-label="Facebook">
               <i class="bi bi-facebook"></i>
@@ -196,38 +661,78 @@
             </a>
           </div>
         </div>
+        
+        <!-- ========== COLUNA 2: CONTATO ========== -->
+        
         <div class="col-lg-3 col-md-6">
           <h5 class="footer-title mb-4">Contato</h5>
+          
           <ul class="list-unstyled small text-light">
+            <!-- Lista não ordenada
+                 - list-unstyled: remove marcadores e padding padrão da lista (Bootstrap)
+                 - small: fonte menor
+                 - text-light: texto claro -->
+            
             <li class="mb-3">
+              <!-- mb-3: margin-bottom de 3 unidades entre itens -->
+              
               <i class="bi bi-geo-alt me-2 text-white"></i>
+              <!-- Ícone de localização (pin de mapa)
+                   - me-2: margin-right de 2 unidades (espaço entre ícone e texto)
+                   - text-white: cor branca pura -->
+              
               <span>Av. Presidente Vargas, 670</span>
+              <!-- Endereço físico da FAPESPA -->
             </li>
             <li class="mb-3">
               <i class="bi bi-telephone me-2 text-white"></i>
+              <!-- Ícone de telefone -->
               <span>+55 (91) 3323-2550</span>
+              <!-- Telefone com código do país e DDD -->
             </li>
             <li class="mb-3">
               <i class="bi bi-clock me-2 text-white"></i>
+              <!-- Ícone de relógio -->
               <span>Seg-Sex: 8h às 14h</span>
+              <!-- Horário de funcionamento -->
             </li>
             <li>
               <i class="bi bi-envelope me-2 text-white"></i>
+              <!-- Ícone de envelope (email) -->
+              
               <a href="mailto:contato@fapespa.pa.gov.br" class="text-light text-decoration-none">contato@fapespa.pa.gov.br</a>
+              <!-- Link de email
+                   - mailto: protocolo que abre programa de email padrão ao clicar
+                   - text-decoration-none: remove sublinhado padrão de links -->
             </li>
           </ul>
         </div>
+        
+        <!-- ========== COLUNA 3: LINKS ÚTEIS ========== -->
+        
         <div class="col-lg-3 col-md-6">
           <h5 class="footer-title mb-4">Links Úteis</h5>
+          
           <ul class="list-unstyled small">
             <li class="mb-2"><a href="https://www.pa.gov.br/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">Governo do Estado do Pará</a></li>
+            <!-- Link externo para site oficial do governo estadual -->
+            
             <li class="mb-2"><a href="https://www.fapespa.pa.gov.br/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">FAPESPA</a></li>
+            <!-- Link externo para site oficial da FAPESPA -->
+            
             <li class="mb-2"><a href="politica-privacidade.html" class="text-light text-decoration-none">Política de Privacidade</a></li>
+            <!-- Link interno (sem target="_blank") para página de política de privacidade -->
+            
             <li><a href="termos-uso.html" class="text-light text-decoration-none">Termos de Uso</a></li>
+            <!-- Link interno para página de termos de uso -->
           </ul>
         </div>
+        
+        <!-- ========== COLUNA 4: NAVEGAÇÃO DO SITE ========== -->
+        
         <div class="col-lg-3 col-md-6">
           <h5 class="footer-title mb-4">Navegação</h5>
+          
           <ul class="list-unstyled small">
             <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Página Inicial</a></li>
             <li class="mb-2"><a href="pib-estadual/index.html" class="text-light text-decoration-none">PIB Estadual</a></li>
@@ -235,21 +740,79 @@
             <li class="mb-2"><a href="pib-trimestral/index.html" class="text-light text-decoration-none">PIB Trimestral</a></li>
             <li><a href="metodologia/index.html" class="text-light text-decoration-none">Metodologia</a></li>
           </ul>
+          <!-- Links de navegação rápida para todas as páginas principais do site -->
         </div>
       </div>
     </div>
   </footer>
+  
+  <!-- ========================================
+       RODAPÉ DE COPYRIGHT
+       ======================================== -->
+  
   <div class="footer-copyright text-center py-3">
+    <!-- Barra de copyright separada (visual mais limpo)
+         - footer-copyright: classe personalizada (provavelmente define cor mais escura)
+         - text-center: centraliza o texto
+         - py-3: padding vertical de 3 unidades -->
+    
     <div class="container">
       <small>© <span data-current-year></span> PIB do Pará | FAPESPA</small>
+      <!-- Texto de copyright
+           - small: tamanho de fonte reduzido
+           - ©: código HTML para símbolo de copyright
+           - data-current-year: atributo customizado que será preenchido com ano atual pelo JavaScript (main.js) -->
     </div>
   </div>
 
+  <!-- ========================================
+       BOTÃO: VOLTAR AO TOPO
+       ======================================== -->
+
   <button id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo" type="button">
+    <!-- Botão de retorno ao topo da página (aparece após scroll)
+         - id="btnTop": identificador usado pelo JavaScript (main.js) para controlar visibilidade e ação
+         - title: tooltip que aparece ao passar o mouse
+         - aria-label: descrição para leitores de tela (acessibilidade)
+         - type="button": especifica que é um botão (não submit de formulário)
+         
+         FUNCIONAMENTO (controlado pelo JavaScript):
+         - Inicialmente invisível (display: none ou opacity: 0)
+         - Aparece quando usuário rola a página mais de 300px para baixo
+         - Ao clicar, faz scroll suave de volta ao topo (window.scrollTo ou similar)
+         - Estilização definida no style.css (#btnTop):
+           * position: fixed (fixo na tela mesmo ao rolar)
+           * bottom/right: posicionado no canto inferior direito
+           * Fundo azul circular com ícone branco
+           * Efeito hover com transição suave -->
+    
     <i class="bi bi-arrow-up"></i>
+    <!-- Ícone de seta para cima do Bootstrap Icons -->
   </button>
+  
+  <!-- ========================================
+       SCRIPTS JAVASCRIPT
+       ======================================== -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript Bundle (arquivo oficial via CDN)
+       - Contém JavaScript do Bootstrap + Popper.js (biblioteca de posicionamento)
+       - Necessário para componentes interativos: navbar collapse, modals, dropdowns, tooltips, etc
+       - Versão 5.3.2 (mantém compatibilidade com CSS Bootstrap importado no <head>)
+       - .bundle.min.js: versão minificada (compactada) com Popper.js incluído
+       - CDN (Content Delivery Network): carrega de servidor otimizado e geograficamente próximo ao usuário -->
+  
   <script src="js/main.js"></script>
+  <!-- Script JavaScript personalizado do site
+       Provavelmente contém:
+       - Funcionalidade do botão voltar ao topo (event listener de scroll)
+       - Controle de acessibilidade (contrast, night mode, font size, etc)
+       - Preenchimento dinâmico do ano atual (data-current-year)
+       - Detecção de dispositivo mobile para PDF viewers
+       - Outras interações personalizadas do site -->
+
 </body>
+<!-- Fecha a tag <body> iniciada após o </head> -->
+
 </html>
+<!-- Fecha o documento HTML -->

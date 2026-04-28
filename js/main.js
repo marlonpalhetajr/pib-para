@@ -39,26 +39,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const viewer = viewerSelector ? document.querySelector(viewerSelector) : null;
     const link = linkSelector ? document.querySelector(linkSelector) : null;
 
-    if (!viewer) {
+    if (!viewer && !link) {
       return;
     }
 
     const updateViewer = () => {
       const value = select.value;
-      const container = viewer.closest("#pdfViewerContainer") || viewer.parentElement;
+      const container = viewer ? (viewer.closest("#pdfViewerContainer") || viewer.parentElement) : null;
       
       if (value) {
         const pdfPath = `${pdfBase}${encodeURI(value)}`;
         
-        // Se for mobile, usar Google Docs Viewer
-        if (isMobile) {
-          // Criar URL completa do PDF
-          const fullUrl = new URL(pdfPath, window.location.href).href;
-          const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true`;
-          viewer.setAttribute("src", googleViewerUrl);
-        } else {
-          // Desktop: usar caminho relativo direto
-          viewer.setAttribute("src", pdfPath);
+        if (viewer) {
+          // Se for mobile, usar Google Docs Viewer
+          if (isMobile) {
+            // Criar URL completa do PDF
+            const fullUrl = new URL(pdfPath, window.location.href).href;
+            const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true`;
+            viewer.setAttribute("src", googleViewerUrl);
+          } else {
+            // Desktop: usar caminho relativo direto
+            viewer.setAttribute("src", pdfPath);
+          }
         }
         
         if (link) {
@@ -73,7 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (container && container.id === "pdfViewerContainer") {
           container.style.display = "none";
         }
-        viewer.setAttribute("src", "");
+        if (viewer) {
+          viewer.setAttribute("src", "");
+        }
+        if (link) {
+          link.setAttribute("href", "#");
+        }
       }
     };
 
