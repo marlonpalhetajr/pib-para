@@ -83,111 +83,70 @@
 
 
   <main>
-    <section class="py-1 mt-0">
-      <div class="container">
-        <div class="row g-2 mb-1">
-          <div class="col-12">
-            <div class="card shadow-lg border-0 h-100" style="background: #12294a; color: #ffffff; min-height: 116px;">
-              <div class="card-body p-2 text-center d-flex flex-column justify-content-center align-items-center">
-                <h3 class="card-title fw-bold mb-0">PIB Trimestral do Estado do Pará</h3>
-                <p class="mb-0 mt-1 small" style="opacity: 0.95;">Acompanhe a evolução econômica do estado através de dashboard interativo e relatórios técnicos especializados</p>
+    <section class="pib-municipal-content-section">
+      <div class="container-fluid">
+        <div class="row g-3 h-100">
+          <!-- Dashboard Column -->
+          <div class="col-12 col-xl-9">
+            <div class="pib-municipal-dashboard-card">
+              <div class="pib-municipal-dashboard-header pib-municipal-dashboard-header-centered">
+                <div class="pib-municipal-dashboard-title-group">
+                  <h1 class="pib-municipal-dashboard-title-main">PIB Trimestral do Estado do Pará</h1>
+                  <p class="pib-municipal-dashboard-subtitle-main">Acompanhe a evolução econômica do estado através de dashboard interativo e relatórios técnicos especializados</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row g-3 mb-2">
-          <div class="col-12">
-            <div class="pib-estadual-dashboard-card">
-              <div class="pib-estadual-dashboard-body">
+              <div class="pib-municipal-dashboard-body">
                 <iframe
-                  class="pib-estadual-iframe"
+                  class="pib-municipal-iframe"
                   title="Dashboard PIB Trimestral"
                   loading="lazy"
                   src="https://app.powerbi.com/view?r=eyJrIjoiM2I0ZGYxYTctNTBhMi00NDNhLTliNzgtODQ5MWU3Y2UyZjE5IiwidCI6IjAzMzJhOGEyLWUzODMtNDYwYi1hMjhkLTUyYTM0Mjg4YTRhZCJ9"
+                  style="border: none; border-radius: 0; min-height: 800px;"
                   allowfullscreen>
                 </iframe>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="row g-3 mb-3">
-          <div class="col-lg-4">
-            <a href="PIB-2-tri-2025.pdf" class="card h-100 shadow-sm border-0 card-hover text-decoration-none" target="_blank" rel="noopener noreferrer">
-              <div class="card-body text-center py-2">
-                <i class="bi bi-file-pdf fs-2 text-danger mb-3"></i>
-                <h5 class="card-title">2º Trimestre 2025</h5>
-                <p class="card-text small text-muted">Português - Mais Recente</p>
-                <span class="badge bg-danger">Atual</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4">
-            <a href="PIB-2-tri-2025-english-version.pdf" class="card h-100 shadow-sm border-0 card-hover text-decoration-none" target="_blank" rel="noopener noreferrer">
-              <div class="card-body text-center py-2">
-                <i class="bi bi-file-pdf fs-2 text-danger mb-3"></i>
-                <h5 class="card-title">2º Trimestre 2025</h5>
-                <p class="card-text small text-muted">English Version</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4">
-            <a href="PIB-TRI-2025-1.pdf" class="card h-100 shadow-sm border-0 card-hover text-decoration-none" target="_blank" rel="noopener noreferrer">
-              <div class="card-body text-center py-2">
-                <i class="bi bi-file-pdf fs-2 text-danger mb-3"></i>
-                <h5 class="card-title">1º Trimestre 2025</h5>
-                <p class="card-text small text-muted">Português</p>
-              </div>
-            </a>
-          </div>
-        </div>
 
-        <div class="row mt-2">
-          <div class="col-lg-12">
-            <div class="p-1 border-2 border-primary rounded bg-white" style="padding: 0.5rem !important;">
-              <h6 class="fw-semibold mb-1" style="font-size: 0.8rem;">Visualizar PDF</h6>
-              <select id="pibTrimestralSelect" class="form-select form-select-sm mb-1" style="font-size: 0.85rem;" data-pdf-select data-pdf-viewer="#pibTrimestralViewer" data-pdf-link="#pibTrimestralFull" data-pdf-base="./">
-                <option value="">Selecione um documento</option>
-                <option value="PIB-2-tri-2025.pdf">2º Trimestre 2025 (Português)</option>
-                <option value="PIB-2-tri-2025-english-version.pdf">2º Trimestre 2025 (English)</option>
-                <option value="PIB-TRI-2025-1.pdf">1º Trimestre 2025</option>
-              </select>
-              <div id="pdfViewerContainer" style="display: none;">
-                <iframe id="pibTrimestralViewer" class="pdf-viewer" title="Visualizador PIB Trimestral" loading="lazy" style="min-height: 800px;"></iframe>
-                <div class="mt-1">
-                  <a id="pibTrimestralFull" data-pdf-download class="btn btn-primary btn-sm" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;" href="#" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-fullscreen me-1"></i>Abrir em outra janela
+          <!-- Sidebar Column -->
+          <div class="col-12 col-xl-3">
+            <div class="pib-municipal-sidebar">
+              <div class="pib-municipal-reports-card">
+                <div class="pib-municipal-reports-header">
+                  <i class="bi bi-file-earmark-pdf"></i>
+                  <h3>Relatórios</h3>
+                </div>
+                <div class="pib-municipal-reports-body">
+                  <label for="pibTrimestralSelect" class="pib-municipal-select-label">Selecione o Documento</label>
+                  <select id="pibTrimestralSelect" class="pib-municipal-modern-select" data-pdf-select data-pdf-link="#pibTrimestralFull" data-pdf-base="./">
+                    <option value="PIB-2-tri-2025.pdf" selected>2º Trimestre 2025 (Português)</option>
+                    <option value="PIB-2-tri-2025-english-version.pdf">2º Trimestre 2025 (English)</option>
+                    <option value="PIB-TRI-2025-1.pdf">1º Trimestre 2025</option>
+                    <option value="Relatorio_do_PIB_Trimestral_4_Trimestre.pdf">4º Trimestre 2024</option>
+                  </select>
+                  <div class="pib-municipal-info-tip">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Documento técnico completo com análise econômica especializada</span>
+                  </div>
+                  <a id="pibTrimestralFull" data-pdf-download class="pib-municipal-download-btn" href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-download"></i> Abrir Relatório
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- DASHBOARD section removed as requested -->
-
-    <section class="py-5 section-muted">
-      <div class="container">
-        <h2 class="section-title text-center">Arquivos Anteriores</h2>
-        <div class="row g-3 justify-content-center">
-          <div class="col-md-6">
-            <div class="p-4 border rounded bg-white h-100 text-center">
-              <h6>Boletim PIB Trimestral 2024</h6>
-              <p class="text-muted small mb-3">4º Trimestre de 2024.</p>
-              <a href="Relatorio_do_PIB_Trimestral_4_Trimestre.pdf" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-file-pdf me-2"></i>Baixar PDF
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="p-4 border rounded bg-white h-100 text-center">
-              <h6>Caderno Metodológico</h6>
-              <p class="text-muted small mb-3">Edição consolidada do PIB Trimestral.</p>
-              <a href="Metodologia-PIB-Trimestral-Edicao-DETGI-Consolidado1.pdf" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-file-pdf me-2"></i>Baixar PDF
+              <a class="pib-municipal-info-card pib-municipal-panel-card"
+                href="Metodologia-PIB-Trimestral-Edicao-DETGI-Consolidado1.pdf"
+                target="_blank" rel="noopener noreferrer">
+                <h4 class="pib-municipal-info-title">
+                  <i class="bi bi-journal-text"></i>
+                  Metodologia PIB Trimestral
+                </h4>
+                <p class="pib-municipal-panel-text">
+                  Consulte o caderno metodológico consolidado do PIB Trimestral.
+                </p>
+                <span class="pib-municipal-panel-action">
+                  Abrir metodologia <i class="bi bi-box-arrow-up-right"></i>
+                </span>
               </a>
             </div>
           </div>
