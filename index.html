@@ -80,7 +80,7 @@
          - p-0: remove padding padrão
          - id="navbar": identificador único para possível manipulação via JavaScript -->
     
-    <a href="https://www.fapespa.pa.gov.br/" target="_blank" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <a href="https://www.fapespa.pa.gov.br/" target="_blank" rel="noopener noreferrer" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
       <!-- Link da logo/marca da FAPESPA
            - target="_blank": abre em nova aba
            - navbar-brand: estilo Bootstrap para logo
@@ -303,7 +303,7 @@
             <h2 class="carousel-title">PIB do Pará cresce 7,85% no terceiro trimestre de 2025 e supera média nacional</h2>
             <!-- Título da notícia -->
             
-            <a href="https://www.fapespa.pa.gov.br/2026/03/03/pib-do-para-cresce-785-no-terceiro-trimestre-de-2025-e-supera-media-nacional/" target="_blank" class="btn btn-light btn-lg mt-3">
+            <a href="https://www.fapespa.pa.gov.br/2026/03/03/pib-do-para-cresce-785-no-terceiro-trimestre-de-2025-e-supera-media-nacional/" target="_blank" rel="noopener noreferrer" class="btn btn-light btn-lg mt-3">
               Leia mais <i class="bi bi-arrow-right"></i>
             </a>
             <!-- Botão que leva para a página da notícia
@@ -333,7 +333,7 @@
             <h2 class="carousel-title">Fapespa apresenta novos produtos estatísticos sobre a economia do Pará</h2>
             <!-- Título da notícia -->
             
-            <a href="https://www.fapespa.pa.gov.br/2025/12/19/fapespa-apresenta-novos-produtos-estatisticos-sobre-a-economia-do-para/" target="_blank" class="btn btn-light btn-lg mt-3">
+            <a href="https://www.fapespa.pa.gov.br/2025/12/19/fapespa-apresenta-novos-produtos-estatisticos-sobre-a-economia-do-para/" target="_blank" rel="noopener noreferrer" class="btn btn-light btn-lg mt-3">
               Leia mais <i class="bi bi-arrow-right"></i>
             </a>
             <!-- Botão que leva para a página da notícia no site da FAPESPA -->
@@ -502,6 +502,10 @@
               <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i> Integração com dashboards Power BI.</li>
               <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i> Downloads oficiais em PDF.</li>
             </ul>
+
+            <button class="btn btn-primary mt-2" type="button" data-bs-toggle="modal" data-bs-target="#apresentacaoModal">
+              <i class="bi bi-file-earmark-text me-2"></i>Apresentação
+            </button>
           </div>
           
           <!-- ========== COLUNA 2: EQUIPE ========== -->
@@ -530,6 +534,57 @@
       </div>
     </section>
   </main>
+
+  <!-- ========================================
+       MODAL: APRESENTAÇÃO
+       ======================================== -->
+
+  <div class="modal fade" id="apresentacaoModal" tabindex="-1" aria-labelledby="apresentacaoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable apresentacao-modal-dialog">
+      <div class="modal-content apresentacao-modal-content">
+        <div class="modal-header apresentacao-modal-header border-0">
+          <div class="apresentacao-modal-heading">
+            <h2 class="modal-title h4 mb-1" id="apresentacaoModalLabel">Apresentação</h2>
+            <p class="apresentacao-modal-subtitle mb-0">Contexto institucional e técnico do projeto PIB do Pará</p>
+          </div>
+          <button type="button" class="btn-close apresentacao-modal-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+
+        <div class="modal-body apresentacao-modal-body">
+          <p>A Fundação Amazônia de Amparo a Estudos e Pesquisas (FAPESPA) tem como atribuição produzir, articular e disseminar conhecimento estratégico para subsidiar o planejamento e a formulação de políticas públicas voltadas ao desenvolvimento econômico, social e ambiental do Estado do Pará.</p>
+
+          <p>Para isso, desenvolve metodologias próprias, elabora indicadores e realiza estudos econômicos sobre o Estado, seus municípios e Regiões de Integração. Os resultados são disponibilizados em diferentes formatos, como Informes Técnicos, Relatórios de Pesquisa, Artigos, dashboards para consulta pública e bancos de dados estruturados, assegurando acesso ágil, transparente e qualificado à informação.</p>
+
+          <p>A Diretoria de Estatística e de Tecnologia e Gestão da Informação (DETGI) é uma diretoria estratégica da FAPESPA. Conforme estabelecido pela Lei Complementar Estadual do Pará nº 061 de 24 de julho de 2007, alterada pela Lei Complementar nº 098 de 1º de janeiro de 2015, a DETGI tem entre suas missões a de manter uma base de dados de informações de qualidade e desenvolver estudos e pesquisas nas áreas de estatística e economia aplicada.</p>
+
+          <p>Para cumprir suas competências, a DETGI está organizada em duas coordenadorias principais:</p>
+
+          <ul>
+            <li>Coordenadoria de Estatística e Disseminação de Informação (CEDI)</li>
+            <li>Coordenadoria de Estatística Econômica e Contas Regionais (CEECR)</li>
+          </ul>
+
+          <p>A CEECR, em particular, é responsável por planejar, coordenar e executar estudos e pesquisas em estatística aplicada, incluindo pesquisas periódicas, tratamento de informações estatísticas e a coordenação da sistematização e atualização de uma base de dados estatísticos, sempre dando publicidade dos seus produtos, sejam eles físicos ou digitais.</p>
+
+          <p>Entre os produtos de destaque da CEECR, estão o PIB Regional, o PIB Municipal e o PIB Trimestral do Estado do Pará. O projeto tem como foco a elaboração das Contas Regionais, com ênfase na estimativa do PIB estadual e municipal e no acompanhamento sistemático das atividades produtivas por meio de séries temporais de curto, médio e longo prazo.</p>
+
+          <p>Estes são resultados de estudos e estimativas da produção local pela ótica da oferta, realizadas em parceria com o Instituto Brasileiro de Geografia e Estatística (IBGE), conforme Caderno Metodológico. Tais indicadores são essenciais para o desempenho econômico, subsidiando estudos, análises e tomadas de decisões por agentes econômicos, gestores públicos na formulação de políticas, o setor privado em suas escolhas e contribuindo para o avanço acadêmico e científico.</p>
+
+          <p>A CEECR também gerencia outros projetos de Pesquisa, Desenvolvimento e Inovação (PD&amp;I), como a “POF Marabá” (Pesquisa de Orçamento Familiar, para mensuração do índice de preço do consumidor e do custo da cesta básica de consumo familiar de Marabá), em parceria com a LAINC (Laboratório de inflação e Custo de Vida da UNIFESSPA) e estatísticas consolidadas e experimentais na construção de Contas Econômicas Integradas e consolidação das Tabelas de Recursos e Usos – TRU, em parceria com a LACAM (Laboratório de Contas Regionais na Amazônia da UNIFESSPA).</p>
+
+          <p>Além disso, há pesquisas recentes relacionadas à Bioeconomia da Sociobiodiversidade que visa dar efetividade aos eixos temáticos da Estratégia Estadual de Bioeconomia, fixada pelo Decreto nº 1.943/2021. O destaque dessa área de atuação é a criação da "Rede Pará sobre Contas Regionais e Bioeconomia", estabelecida por meio do Termo de Cooperação Técnica nº 001/2025, fruto de uma parceria entre a FAPESPA e Universidades Federais situadas no Estado do Pará (UFPA, UNIFESSPA e UFOPA).</p>
+
+          <p>Ao se firmar parcerias como essa, os objetivos incluem o desenvolvimento de ações de ensino, pesquisa e extensão para análises em áreas de mútuo interesse, com compartilhamento de dados e informações, desenvolvimento de projetos, estudos, pareceres técnicos, relatórios, boletins e outros materiais. Promove-se ainda a realização de eventos conjuntos com as entidades convenentes, produzindo e divulgando informações e conteúdos científicos para a sociedade paraense, gestores públicos e empreendedores da região.</p>
+
+          <p>O propósito dos estudos desenvolvidos coincide na disseminação das informações alinhada com o aprimoramento, preservação e qualidade dos dados disponíveis. Desta forma, pode-se auxiliar na melhora da sociedade por meio do apoio e subsídio ao planejamento e formulação de políticas públicas voltadas ao segmento econômico e social.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <!-- ========================================
        MODAL: INFORMAÇÕES DA EQUIPE

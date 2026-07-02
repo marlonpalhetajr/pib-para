@@ -356,6 +356,102 @@ main > section:first-of-type {
   color: #cbd5f5;
 }
 
+/* ==============================
+   MODAL APRESENTAÇÃO
+   ============================== */
+
+.apresentacao-modal-dialog {
+  max-width: 1100px;
+}
+
+.apresentacao-modal-content {
+  border: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(11, 31, 58, 0.22);
+}
+
+.apresentacao-modal-header {
+  position: relative;
+  padding: 2rem 2.25rem 1.25rem;
+  background: linear-gradient(135deg, #eef4fb 0%, #ffffff 72%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.apresentacao-modal-heading {
+  width: 100%;
+}
+
+.apresentacao-modal-header .modal-title {
+  color: #123c78;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.apresentacao-modal-subtitle {
+  color: #5b6b84;
+  font-size: 0.96rem;
+}
+
+.apresentacao-modal-close {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  margin: 0;
+}
+
+.apresentacao-modal-body {
+  padding: 1.75rem 2.25rem 2rem;
+  background: #ffffff;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #24324a;
+}
+
+.apresentacao-modal-body p {
+  margin-bottom: 1rem;
+}
+
+.apresentacao-modal-body ul {
+  padding-left: 1.35rem;
+  margin: 0 0 1rem;
+}
+
+.apresentacao-modal-body li {
+  margin-bottom: 0.5rem;
+}
+
+.apresentacao-modal-content .modal-footer {
+  padding: 0 2.25rem 1.75rem;
+  border-top: 0;
+  justify-content: center;
+  background: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .apresentacao-modal-header {
+    padding: 1.5rem 1.25rem 1rem;
+  }
+
+  .apresentacao-modal-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+    font-size: 0.96rem;
+  }
+
+  .apresentacao-modal-content .modal-footer {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .apresentacao-modal-close {
+    top: 0.85rem;
+    right: 0.85rem;
+  }
+}
+
 .list-clean {
   padding-left: 0;
   list-style: none;
@@ -1091,4 +1187,22 @@ body.acess-reduce-motion * {
 
 #btnTop i {
   pointer-events: none;
+}
+
+.descricao-pib{
+    background: rgba(17,41,74,.92);
+    backdrop-filter: blur(8px);
+    color:#fff;
+    padding:20px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.descricao-pib p{
+    margin: 0;
+    line-height: 1.8;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: justify;
 }
